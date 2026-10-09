@@ -34,11 +34,38 @@ else if (this.operator === '/') {
 }
 }
 }
-
-
+const calculatorButtons = document.querySelectorAll('[data-digit]');
 
 const calc = new Calculator();
-calc.digit(8);
-calc.setOperator('/');
-calc.digit(3);
-console.log(calc.equals());
+calculatorButtons.forEach(function (button) {
+  button.addEventListener('click', function () {
+    calc.digit (Number(button.dataset.digit));
+    console.log(calc);
+  });
+});
+
+const calculatorOperator = document.querySelectorAll('[data-op]');
+
+calculatorOperator.forEach(function (button) {
+  button.addEventListener('click', function () {
+    calc.setOperator(button.dataset.op);
+    console.log(calc);
+  });
+});
+
+const equal = document.querySelector('[data-equals]');
+  const screen = document.getElementById('screen');
+
+equal.addEventListener('click', function () {
+  console.log(calc.equals())
+screen.textContent = calc.equals()
+});
+
+
+
+
+
+
+
+
+

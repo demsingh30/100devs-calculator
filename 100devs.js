@@ -40,6 +40,7 @@ const calc = new Calculator();
 calculatorButtons.forEach(function (button) {
   button.addEventListener('click', function () {
     calc.digit (Number(button.dataset.digit));
+    screen.textContent = button.dataset.digit
     console.log(calc);
   });
 });
